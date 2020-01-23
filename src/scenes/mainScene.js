@@ -6,8 +6,6 @@ import background_sprite from "../assets/backgrounds/purple.png";
 import shoot_sprite from "../assets/PNG/lasers/laserBlue01.png";
 import red_ship_sprite from "../assets/PNG/Enemies/enemyRed1.png";
 
-var background;
-
 class MainScene extends Phaser.Scene {
   constructor() {
     super({ key: "mainScene" });
@@ -27,7 +25,7 @@ class MainScene extends Phaser.Scene {
     this.enemyLasers = this.add.group();
     this.playerLasers = this.add.group();
 
-    background = this.add.tileSprite(
+    this.background = this.add.tileSprite(
       240,
       320,
       this.game.config.width,
@@ -70,7 +68,7 @@ class MainScene extends Phaser.Scene {
   }
 
   update() {
-    background.tilePositionY -= 3;
+    this.background.tilePositionY -= 3;
     this.player.update();
     //Removing objects out of the screen
     this.enemies.getChildren().forEach(enemy => {

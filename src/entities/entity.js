@@ -9,7 +9,6 @@ class Entity extends Phaser.GameObjects.Sprite {
   // x and y are the position where the object will be spawned
   constructor(scene, x, y, texture, type) {
     super(scene, x, y, texture);
-    this.setTexture(texture)
     this.scene = scene;
     this.scene.add.existing(this);
     this.scene.physics.world.enableBody(this, 0);
