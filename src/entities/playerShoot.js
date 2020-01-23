@@ -6,7 +6,7 @@ class playerShoot extends Entity {
     this.setData("speed", 500);
   }
 
-  update() {
+  move() {
     this.body.velocity.y = -this.getData("speed");
   }
 }

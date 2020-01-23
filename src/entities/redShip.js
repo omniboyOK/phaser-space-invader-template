@@ -6,7 +6,7 @@ class RedShip extends Entity {
     this.setData("speed", 300);
   }
 
-  update() {
+  move() {
     if (!this.getData("isDead")) {
       this.body.velocity.y = this.getData("speed");
     }

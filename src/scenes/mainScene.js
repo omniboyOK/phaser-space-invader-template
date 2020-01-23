@@ -22,7 +22,6 @@ class MainScene extends Phaser.Scene {
   create() {
     //We create containers that will group multiple objects
     this.enemies = this.add.group();
-    this.enemyLasers = this.add.group();
     this.playerLasers = this.add.group();
 
     this.background = this.add.tileSprite(
@@ -50,7 +49,7 @@ class MainScene extends Phaser.Scene {
           0
         );
         this.enemies.add(enemy);
-        enemy.update();
+        enemy.move();
       },
       callbackScope: this,
       loop: true

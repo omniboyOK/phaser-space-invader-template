@@ -47,8 +47,8 @@ class Player extends Entity {
         this.body.position.y
       );
       this.scene.playerLasers.add(shoot);
-      // We call the update function so our laser moves
-      shoot.update();
+      // We call the move function so our laser moves
+      shoot.move();
       //We set our shooting to charging
       this.coolDown();
     }
@@ -67,6 +67,8 @@ class Player extends Entity {
     if (!this.getData("isDead")) {
 
       this.body.setVelocity(0, 0);
+
+      //This prevent the player to go out of bounds of the screen
       this.x = Phaser.Math.Clamp(this.x, 0, this.scene.game.config.width);
       this.y = Phaser.Math.Clamp(this.y, 0, this.scene.game.config.height);
 
