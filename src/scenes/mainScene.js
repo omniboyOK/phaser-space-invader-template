@@ -70,21 +70,12 @@ class MainScene extends Phaser.Scene {
     this.background.tilePositionY -= 3;
     this.player.update();
     //Removing objects out of the screen
-    this.enemies.getChildren().forEach(enemy => {
-      if (
-        enemy.x < -enemy.displayWidth ||
-        enemy.x > this.game.config.width + enemy.displayWidth ||
-        enemy.y < -enemy.displayHeight * 4 ||
-        enemy.y > this.game.config.height + enemy.displayHeight
-      ) {
-        if (enemy) {
-          if (enemy.onDestroy !== undefined) {
-            enemy.onDestroy();
-          }
-          enemy.destroy();
-          console.log("bye");
-        }
-      }
+    //Removing objects out of the screen
+    this.playerLasers.getChildren().forEach(element => {
+      element.checkOutOfBonds()
+    });
+    this.enemies.getChildren().forEach(element => {
+      element.checkOutOfBonds()
     });
   }
 }

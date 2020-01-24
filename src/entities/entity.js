@@ -16,9 +16,23 @@ class Entity extends Phaser.GameObjects.Sprite {
     this.setData("isDead", false);
   }
 
-  onDestroy(){
-    this.setData('isDead', true);
+  onDestroy() {
+    this.setData("isDead", true);
     this.visible = false;
+  }
+
+  checkOutOfBonds() {
+    if (
+      this.x < -this.displayWidth ||
+      this.x > this.scene.game.config.width + this.displayWidth ||
+      this.y < -this.displayHeight * 4 ||
+      this.y > this.scene.game.config.height + this.displayHeight
+    ) {
+      if (this) {
+        this.destroy();
+        console.log("bye");
+      }
+    }
   }
 }
 
