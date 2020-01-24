@@ -60,22 +60,25 @@ class MainScene extends Phaser.Scene {
       player.onDestroy();
     });
 
-    this.physics.add.overlap(this.enemies, this.playerLasers, (enemy, laser) => {
-      enemy.destroy();
-      laser.destroy();
-    });
+    this.physics.add.overlap(
+      this.enemies,
+      this.playerLasers,
+      (enemy, laser) => {
+        enemy.destroy();
+        laser.destroy();
+      }
+    );
   }
 
   update() {
     this.background.tilePositionY -= 3;
     this.player.update();
     //Removing objects out of the screen
-    //Removing objects out of the screen
     this.playerLasers.getChildren().forEach(element => {
-      element.checkOutOfBonds()
+      element.checkOutOfBonds();
     });
     this.enemies.getChildren().forEach(element => {
-      element.checkOutOfBonds()
+      element.checkOutOfBonds();
     });
   }
 }
